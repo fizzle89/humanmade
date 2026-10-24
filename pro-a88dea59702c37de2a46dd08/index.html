@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Human-made Pro</title><link rel="stylesheet" href="../style.css"></head><body>
+<h1>Human-made Pro</h1><p class="lead">Unmarked certificates, batches, badge code.</p><div class="card"><label>File to certify (pick several for a pack)</label><input type="file" id="drop" multiple><div class="small" id="fl">No file chosen</div>
+<label>Creator or studio name</label><input id="who"><label>Work title (optional)</label><input id="title">
+<label>Tools used, if any (disclose honestly)</label><input id="tools" placeholder="e.g. spellcheck only; no generative AI">
+<label>Declaration</label><textarea id="decl" rows="3">I made this work myself. I did not use generative AI to produce its text, images or design, except as disclosed above.</textarea>
+<label><input type="checkbox" id="ack" style="width:auto"> I stand behind this declaration.</label>
+<button id="make">Create certificate</button>
+<div id="result" hidden><h2>Your certificates</h2><div id="certs"></div></div></div><script>window.HM_PRO=1</script><script src="../app.js"></script></body></html>

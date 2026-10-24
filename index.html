@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Human-made: certificates for work you made yourself</title><meta name="description" content="Fingerprint a deliverable, record your human-made declaration, get a tamper-evident certificate and badge. Runs in your browser; files never upload."><link rel="stylesheet" href="style.css"></head><body>
+<h1>Human-made</h1><p class="lead">Show clients your work is yours. Fingerprint the file, sign your declaration, get a certificate anyone can re-check.</p>
+<div class="card small"><b>What this is, plainly.</b> A certificate records your file's SHA-256 fingerprint, your written declaration and a timestamp, sealed so any edit is detectable. It proves the file and statement have not changed since issue. It cannot prove how the work was made. Your name stands behind the declaration. Files never leave your device.</div>
+<h2>Try it free (1 file, marked SAMPLE)</h2><div class="card"><label>File to certify </label><input type="file" id="drop" ><div class="small" id="fl">No file chosen</div>
+<label>Creator or studio name</label><input id="who"><label>Work title (optional)</label><input id="title">
+<label>Tools used, if any (disclose honestly)</label><input id="tools" placeholder="e.g. spellcheck only; no generative AI">
+<label>Declaration</label><textarea id="decl" rows="3">I made this work myself. I did not use generative AI to produce its text, images or design, except as disclosed above.</textarea>
+<label><input type="checkbox" id="ack" style="width:auto"> I stand behind this declaration.</label>
+<button id="make">Create certificate</button>
+<div id="result" hidden><h2>Your certificates</h2><div id="certs"></div></div></div>
+<h2>Get the real thing</h2><div class="price"><div class="card"><b>Certificate pack, $19</b><br>Unmarked certificates, batch of files, embed badge, PDF. One-time.<br><a class="btn" href="https://buy.polar.sh/polar_cl_84pPNNRwHA289qDRZJIZbM9gEB3FAw34pVVl42PcNak">Buy pack</a></div><div class="card"><b>Agency, $49/mo</b><br>Same, unlimited packs for your team and clients.<br><a class="btn" href="https://buy.polar.sh/polar_cl_D87ksD2eCgDsqSOxdROD0daRmM34Gd5HiXEsd0deYFB">Subscribe</a></div></div>
+<p><a href="verify.html">Verify a certificate</a></p><script src="app.js"></script></body></html>

@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Verify a Human-made certificate</title><link rel="stylesheet" href="style.css"></head><body>
+<h1>Verify a certificate</h1><p class="lead">Drop the file and paste the certificate JSON. Runs in your browser.</p>
+<div class="card"><input type="file" id="vfile"><textarea id="vjson" rows="8" placeholder="Paste certificate JSON"></textarea><button id="vgo">Check</button><p id="vres"></p></div>
+<p class="small">A match means the file and certificate are unchanged since issue. It does not independently prove authorship.</p>
+<input type="file" id="drop" hidden><div id="fl" hidden></div><button id="make" hidden></button><div id="certs" hidden></div><script>window.HM_VERIFY=1</script><script src="app.js"></script></body></html>
