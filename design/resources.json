@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "product": "Human-made",
+  "categories": ["full-build", "style", "components", "mobile", "navigation", "conversion", "motion", "illustration"],
+  "references": [
+    {"url": "https://minimal.gallery/", "purpose": "Editorial single-column composition and print-like spacing for the notary-ledger identity"},
+    {"url": "https://styles.refero.design/", "purpose": "Type scale and serif display + system body pairing discipline"},
+    {"url": "https://cta.gallery/", "purpose": "Single primary CTA per section, quiet secondary outline"},
+    {"url": "https://component.gallery/", "purpose": "Form field anatomy: label, control, hint, focus state"},
+    {"url": "https://navbar.gallery/", "purpose": "Minimal wordmark header that wraps cleanly on mobile"},
+    {"url": "https://footer.design/", "purpose": "Single-line honest footer pattern"},
+    {"url": "https://motion-primitives.com/", "purpose": "Bounded entry-reveal timing (300-400ms, once) adapted to IntersectionObserver"},
+    {"url": "https://3dicons.co/", "purpose": "Reviewed for seal/step iconography; rejected in favor of inline SVG to keep zero-dependency page"}
+  ],
+  "componentChoices": {
+    "typography": "Playfair Display display, Georgia/system serif body, IBM Plex Mono for hashes (Google Fonts stylesheet only)",
+    "cards": "Double-rule engraved certificate cards, CSS wax-seal medallion",
+    "motion": "Inline IntersectionObserver reveal + stamp entrance; prefers-reduced-motion honored; no JS libraries",
+    "stack": "Static HTML/CSS/JS, no build step, no remote scripts"
+  },
+  "reviewedAt": "2026-10-24"
+}

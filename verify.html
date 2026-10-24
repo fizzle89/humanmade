@@ -1,5 +1,56 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Verify a Human-made certificate</title><link rel="stylesheet" href="style.css"></head><body>
-<h1>Verify a certificate</h1><p class="lead">Drop the file and paste the certificate JSON. Runs in your browser.</p>
-<div class="card"><input type="file" id="vfile"><textarea id="vjson" rows="8" placeholder="Paste certificate JSON"></textarea><button id="vgo">Check</button><p id="vres"></p></div>
-<p class="small">A match means the file and certificate are unchanged since issue. It does not independently prove authorship.</p>
-<input type="file" id="drop" hidden><div id="fl" hidden></div><button id="make" hidden></button><div id="certs" hidden></div><script>window.HM_VERIFY=1</script><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verify a Human-made certificate</title>
+<meta name="description" content="Re-check a Human-made certificate: drop the file and paste the certificate JSON. Runs in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.className+=' js'</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="./"><span class="seal sm" aria-hidden="true">HM</span> Human-made</a>
+  <nav aria-label="Main">
+    <a href="./#how">How it works</a>
+    <a href="./#try">Try free</a>
+    <a href="./#pricing">Pricing</a>
+  </nav>
+</header>
+<main id="main">
+<section class="hero reveal">
+  <p class="eyebrow">Verify</p>
+  <h1>Re-check a certificate</h1>
+  <p class="lead">Drop the file and paste the certificate JSON. The check runs in your browser; nothing uploads.</p>
+</section>
+<section class="reveal">
+  <div class="card">
+    <label for="vfile">The file that was certified</label>
+    <input type="file" id="vfile">
+    <label for="vjson">Certificate JSON</label>
+    <textarea id="vjson" rows="8" placeholder="Paste certificate JSON"></textarea>
+    <button id="vgo">Check</button>
+    <p id="vres" aria-live="polite"></p>
+  </div>
+  <p class="note" style="margin-top:16px">A match means the file and certificate are unchanged since issue. It does not independently prove authorship.</p>
+</section>
+</main>
+<footer>
+  <span><b>Human-made</b> — a certificate proves the file and declaration have not changed since issue. It does not prove how the work was made.</span>
+  <span><a href="./" style="color:var(--mut)">Back to Human-made</a></span>
+</footer>
+<input type="file" id="drop" hidden><div id="fl" hidden></div><button id="make" hidden></button><div id="certs" hidden></div>
+<script>window.HM_VERIFY=1</script>
+<script src="app.js"></script>
+<script>
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')})}
+</script>
+</body>
+</html>

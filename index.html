@@ -1,12 +1,115 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Human-made: certificates for work you made yourself</title><meta name="description" content="Fingerprint a deliverable, record your human-made declaration, get a tamper-evident certificate and badge. Runs in your browser; files never upload."><link rel="stylesheet" href="style.css"></head><body>
-<h1>Human-made</h1><p class="lead">Show clients your work is yours. Fingerprint the file, sign your declaration, get a certificate anyone can re-check.</p>
-<div class="card small"><b>What this is, plainly.</b> A certificate records your file's SHA-256 fingerprint, your written declaration and a timestamp, sealed so any edit is detectable. It proves the file and statement have not changed since issue. It cannot prove how the work was made. Your name stands behind the declaration. Files never leave your device.</div>
-<h2>Try it free (1 file, marked SAMPLE)</h2><div class="card"><label>File to certify </label><input type="file" id="drop" ><div class="small" id="fl">No file chosen</div>
-<label>Creator or studio name</label><input id="who"><label>Work title (optional)</label><input id="title">
-<label>Tools used, if any (disclose honestly)</label><input id="tools" placeholder="e.g. spellcheck only; no generative AI">
-<label>Declaration</label><textarea id="decl" rows="3">I made this work myself. I did not use generative AI to produce its text, images or design, except as disclosed above.</textarea>
-<label><input type="checkbox" id="ack" style="width:auto"> I stand behind this declaration.</label>
-<button id="make">Create certificate</button>
-<div id="result" hidden><h2>Your certificates</h2><div id="certs"></div></div></div>
-<h2>Get the real thing</h2><div class="price"><div class="card"><b>Certificate pack, $19</b><br>Unmarked certificates, batch of files, embed badge, PDF. One-time.<br><a class="btn" href="https://buy.polar.sh/polar_cl_84pPNNRwHA289qDRZJIZbM9gEB3FAw34pVVl42PcNak">Buy pack</a></div><div class="card"><b>Agency, $49/mo</b><br>Same, unlimited packs for your team and clients.<br><a class="btn" href="https://buy.polar.sh/polar_cl_D87ksD2eCgDsqSOxdROD0daRmM34Gd5HiXEsd0deYFB">Subscribe</a></div></div>
-<p><a href="verify.html">Verify a certificate</a></p><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Human-made: certificates for work you made yourself</title>
+<meta name="description" content="Fingerprint a deliverable, record your human-made declaration, get a tamper-evident certificate and badge. Runs in your browser; files never upload.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.className+=' js'</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="./"><span class="seal sm" aria-hidden="true">HM</span> Human-made</a>
+  <nav aria-label="Main">
+    <a href="#plainly">What it is</a>
+    <a href="#how">How it works</a>
+    <a href="#try">Try free</a>
+    <a href="verify.html">Verify</a>
+    <a href="#pricing">Pricing</a>
+  </nav>
+</header>
+<main id="main">
+
+<section class="hero reveal">
+  <p class="eyebrow">Certificates for human-made work</p>
+  <h1>Proof your work is yours, in&nbsp;writing.</h1>
+  <p class="lead">Fingerprint a deliverable, add your signed declaration, and get a sealed certificate anyone can re-check. It all runs in your browser; files never leave your device.</p>
+  <p class="cta-row"><a class="btn primary" href="#try">Try it free</a> <a class="btn ghost" href="verify.html">Verify a certificate</a></p>
+</section>
+
+<section id="plainly" class="reveal" aria-label="What this is, plainly">
+  <div class="scope">
+    <span class="seal lg" aria-hidden="true">HM</span>
+    <p><b>What this is, plainly.</b> A certificate records your file's SHA-256 fingerprint, your written declaration and a timestamp, sealed so any edit is detectable. It proves the file and statement have not changed since issue. It cannot prove how the work was made. Your name stands behind the declaration. Files never leave your device.</p>
+  </div>
+</section>
+
+<section id="how" class="reveal">
+  <p class="eyebrow">How it works</p>
+  <h2>Sealed in three steps</h2>
+  <ol class="steps">
+    <li><b>Fingerprint the file</b><p>Your browser computes the file's SHA-256 fingerprint. Nothing uploads; the file never leaves your device.</p></li>
+    <li><b>Sign your declaration</b><p>You state, in writing and under your name, how the work was made and which tools you used.</p></li>
+    <li><b>Seal and share</b><p>The certificate seals the fingerprint, declaration and time. Anyone can re-check it on the verify page.</p></li>
+  </ol>
+</section>
+
+<section id="try" class="reveal">
+  <p class="eyebrow">Free sample</p>
+  <h2>Try it free (1 file, marked SAMPLE)</h2>
+  <div class="card">
+    <label for="drop">File to certify</label>
+    <input type="file" id="drop">
+    <div id="fl">No file chosen</div>
+    <label for="who">Creator or studio name</label>
+    <input id="who" type="text" autocomplete="name">
+    <label for="title">Work title <span class="opt">(optional)</span></label>
+    <input id="title" type="text">
+    <label for="tools">Tools used, if any <span class="opt">(disclose honestly)</span></label>
+    <input id="tools" type="text" placeholder="e.g. spellcheck only; no generative AI">
+    <label for="decl">Declaration</label>
+    <textarea id="decl" rows="3">I made this work myself. I did not use generative AI to produce its text, images or design, except as disclosed above.</textarea>
+    <label class="check"><input type="checkbox" id="ack"> <span>I stand behind this declaration.</span></label>
+    <button id="make">Create certificate</button>
+    <div id="result" hidden><h2>Your certificates</h2><div id="certs"></div></div>
+  </div>
+</section>
+
+<section id="pricing" class="reveal">
+  <p class="eyebrow">Pricing</p>
+  <h2>Get the real thing</h2>
+  <div class="price">
+    <div class="plan">
+      <p class="amount">$19 <span>one-time</span></p>
+      <h3>Certificate pack</h3>
+      <p>Unmarked certificates, batch of files, embed badge, PDF.</p>
+      <a class="btn primary" href="https://buy.polar.sh/polar_cl_84pPNNRwHA289qDRZJIZbM9gEB3FAw34pVVl42PcNak">Buy pack</a>
+    </div>
+    <div class="plan">
+      <p class="amount">$49 <span>per month</span></p>
+      <h3>Agency</h3>
+      <p>Same, unlimited packs for your team and clients.</p>
+      <a class="btn ghost" href="https://buy.polar.sh/polar_cl_D87ksD2eCgDsqSOxdROD0daRmM34Gd5HiXEsd0deYFB">Subscribe</a>
+    </div>
+  </div>
+</section>
+
+<section class="reveal" aria-label="Verify">
+  <div class="band">
+    <div>
+      <h2>Received a certificate?</h2>
+      <p>Drop the file and the certificate JSON on the verify page. You will know in seconds whether anything changed since it was sealed.</p>
+    </div>
+    <a class="btn" href="verify.html">Verify a certificate</a>
+  </div>
+</section>
+
+</main>
+<footer>
+  <span><b>Human-made</b> — a certificate proves the file and declaration have not changed since issue. It does not prove how the work was made.</span>
+  <span>Runs entirely in your browser.</span>
+</footer>
+<script src="app.js"></script>
+<script>
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')})}
+</script>
+</body>
+</html>

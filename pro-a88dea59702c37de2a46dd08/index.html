@@ -1,8 +1,57 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Human-made Pro</title><link rel="stylesheet" href="../style.css"></head><body>
-<h1>Human-made Pro</h1><p class="lead">Unmarked certificates, batches, badge code.</p><div class="card"><label>File to certify (pick several for a pack)</label><input type="file" id="drop" multiple><div class="small" id="fl">No file chosen</div>
-<label>Creator or studio name</label><input id="who"><label>Work title (optional)</label><input id="title">
-<label>Tools used, if any (disclose honestly)</label><input id="tools" placeholder="e.g. spellcheck only; no generative AI">
-<label>Declaration</label><textarea id="decl" rows="3">I made this work myself. I did not use generative AI to produce its text, images or design, except as disclosed above.</textarea>
-<label><input type="checkbox" id="ack" style="width:auto"> I stand behind this declaration.</label>
-<button id="make">Create certificate</button>
-<div id="result" hidden><h2>Your certificates</h2><div id="certs"></div></div></div><script>window.HM_PRO=1</script><script src="../app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Human-made Pro</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script>document.documentElement.className+=' js'</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <span class="brand"><span class="seal sm" aria-hidden="true">HM</span> Human-made Pro</span>
+</header>
+<main id="main">
+<section class="hero reveal">
+  <p class="eyebrow">Pro</p>
+  <h1>Your certificate desk</h1>
+  <p class="lead">Unmarked certificates, batches, badge code. Pick several files to seal a pack in one pass.</p>
+</section>
+<section class="reveal">
+  <div class="card">
+    <label for="drop">Files to certify <span class="opt">(pick several for a pack)</span></label>
+    <input type="file" id="drop" multiple>
+    <div id="fl">No file chosen</div>
+    <label for="who">Creator or studio name</label>
+    <input id="who" type="text" autocomplete="name">
+    <label for="title">Work title <span class="opt">(optional)</span></label>
+    <input id="title" type="text">
+    <label for="tools">Tools used, if any <span class="opt">(disclose honestly)</span></label>
+    <input id="tools" type="text" placeholder="e.g. spellcheck only; no generative AI">
+    <label for="decl">Declaration</label>
+    <textarea id="decl" rows="3">I made this work myself. I did not use generative AI to produce its text, images or design, except as disclosed above.</textarea>
+    <label class="check"><input type="checkbox" id="ack"> <span>I stand behind this declaration.</span></label>
+    <button id="make">Create certificate</button>
+    <div id="result" hidden><h2>Your certificates</h2><div id="certs"></div></div>
+  </div>
+</section>
+</main>
+<footer>
+  <span><b>Human-made Pro</b> — a certificate proves the file and declaration have not changed since issue. It does not prove how the work was made.</span>
+  <span>Runs entirely in your browser.</span>
+</footer>
+<script>window.HM_PRO=1</script>
+<script src="../app.js"></script>
+<script>
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')})}
+</script>
+</body>
+</html>

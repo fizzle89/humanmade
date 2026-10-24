@@ -1,4 +1,133 @@
-body{font:16px/1.5 system-ui,sans-serif;max-width:720px;margin:32px auto;padding:0 16px;color:#111}
-h1{font-size:28px;margin-bottom:4px}.lead{color:#444}.card,.cert{border:1px solid #ddd;border-radius:10px;padding:16px;margin:16px 0}
-input,textarea{width:100%;box-sizing:border-box;padding:8px;margin:4px 0 10px;font:inherit}button,.btn{background:#111;color:#fff;border:0;border-radius:8px;padding:10px 14px;margin:4px 4px 4px 0;cursor:pointer;text-decoration:none;display:inline-block}
-code{word-break:break-all;font-size:12px}.small{font-size:13px;color:#444}.price{display:flex;gap:12px;flex-wrap:wrap}.price .card{flex:1;min-width:220px}
+/* Human-made — notary-ledger identity. Ivory parchment, ink navy, vermillion seal. */
+:root{
+  --bg:#f5f0e6; --card:#fffdf8; --ink:#1d2438; --mut:#5c5a52;
+  --line:#d8cfba; --line2:#c9bfa4; --seal:#a83a22; --seal-dk:#8c2f1b;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --serif:Georgia,"Times New Roman",serif;
+  --display:"Playfair Display",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--serif);padding:0 20px}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:8px 14px;z-index:9}
+.skip:focus{left:8px;top:8px}
+
+/* header */
+header.top{max-width:960px;margin:0 auto;padding:22px 0 18px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;border-bottom:2px solid var(--ink)}
+.brand{font-family:var(--display);font-weight:700;font-size:22px;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:10px;letter-spacing:.2px}
+nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:4px 18px}
+nav a{color:var(--mut);text-decoration:none;font-size:14.5px;padding:6px 2px;border-bottom:1px solid transparent}
+nav a:hover{color:var(--ink);border-bottom-color:var(--seal)}
+
+/* seal medallion */
+.seal{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#c14a2e,var(--seal) 55%,var(--seal-dk));
+  color:#f8ecd9;font-family:var(--display);font-weight:700;box-shadow:0 1px 2px rgba(29,36,56,.35),inset 0 0 0 2px rgba(248,236,217,.4)}
+.seal.sm{width:30px;height:30px;font-size:11px}
+.seal.lg{width:74px;height:74px;font-size:24px}
+
+main{max-width:960px;margin:0 auto}
+section{margin:44px 0}
+.eyebrow{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--seal);font-weight:600;margin:0 0 10px}
+h1{font-family:var(--display);font-weight:700;font-size:44px;line-height:1.12;margin:0 0 14px;letter-spacing:-.01em}
+h2{font-family:var(--display);font-weight:700;font-size:26px;line-height:1.2;margin:0 0 14px}
+h3{font-family:var(--display);font-size:19px;margin:0 0 10px}
+.lead{font-size:18px;color:var(--mut);max-width:56ch;margin:0 0 22px}
+
+/* hero */
+.hero{padding:56px 0 8px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:6px 0 0}
+.btn{display:inline-block;font:600 15px/1 var(--serif);padding:14px 22px;border-radius:6px;text-decoration:none;cursor:pointer;border:1px solid var(--ink);min-height:44px}
+.btn.primary{background:var(--seal);border-color:var(--seal-dk);color:#fff}
+.btn.primary:hover{background:var(--seal-dk)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--card)}
+button.btn{font-size:15px}
+
+/* cards — engraved double rule */
+.card,.cert,.scope{background:var(--card);border:1px solid var(--line2);outline:1px solid var(--line);outline-offset:-6px;border-radius:3px;padding:26px;margin:0}
+.scope{display:flex;gap:20px;align-items:flex-start}
+.scope .seal.lg{flex:0 0 auto;margin-top:4px}
+.scope p{margin:0;color:var(--mut)}
+.scope b{color:var(--ink)}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:step}
+.steps li{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:20px 20px 18px;counter-increment:step;position:relative}
+.steps li::before{content:counter(step);display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:1.5px solid var(--seal);border-radius:50%;color:var(--seal);font:600 14px var(--serif);margin-bottom:10px}
+.steps b{display:block;font-size:16.5px;margin-bottom:4px}
+.steps p{margin:0;color:var(--mut);font-size:14.5px}
+
+/* form */
+form,.formcard{display:block}
+label{display:block;font-weight:700;font-size:14.5px;margin:16px 0 6px}
+label .opt{font-weight:400;color:var(--mut)}
+input[type=text],input:not([type]),textarea{width:100%;padding:11px 12px;font:15px var(--serif);color:var(--ink);background:#fff;border:1px solid var(--line2);border-radius:6px}
+input[type=file]{width:100%;padding:11px 12px;background:#fff;border:1px dashed var(--line2);border-radius:6px;font:14.5px var(--serif)}
+input:focus,textarea:focus{outline:2px solid var(--seal);outline-offset:1px;border-color:var(--seal)}
+label.check{display:flex;align-items:flex-start;gap:10px;font-weight:400;margin:16px 0}
+label.check input{width:auto;margin-top:4px;min-width:18px;min-height:18px}
+#fl{font-size:13.5px;color:var(--mut);margin-top:6px}
+#make{margin-top:8px}
+button,.btn{font-family:var(--serif)}
+button{background:var(--seal);color:#fff;border:1px solid var(--seal-dk);border-radius:6px;padding:12px 20px;font-size:15px;font-weight:600;cursor:pointer;min-height:44px}
+button:hover{background:var(--seal-dk)}
+button:focus-visible,.btn:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+
+/* certificate */
+#result{margin-top:26px}
+.cert{margin:18px 0;position:relative;padding:28px 96px 24px 28px}
+.cert::before{content:"HM";position:absolute;top:18px;right:18px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#c14a2e,var(--seal) 55%,var(--seal-dk));color:#f8ecd9;font:700 16px var(--display);box-shadow:inset 0 0 0 2px rgba(248,236,217,.4);transform:rotate(-8deg)}
+.cert p{margin:8px 0}
+code{font-family:var(--mono);font-size:12.5px;overflow-wrap:anywhere;word-break:break-all;background:#f4efe2;padding:1px 4px;border-radius:3px}
+.cert button{background:var(--ink);border-color:var(--ink);margin:6px 8px 0 0;padding:10px 16px;font-size:14px}
+.cert button:hover{background:#000}
+.js .cert{animation:stamp .28s ease-out}
+@keyframes stamp{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:scale(1)}}
+
+/* pricing */
+.price{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.plan{background:var(--card);border:1px solid var(--line2);outline:1px solid var(--line);outline-offset:-6px;border-radius:3px;padding:26px;display:flex;flex-direction:column;gap:8px}
+.plan .amount{font-family:var(--display);font-size:34px;font-weight:700}
+.plan .amount span{font-size:15px;color:var(--mut);font-family:var(--serif);font-weight:400}
+.plan p{margin:0;color:var(--mut);font-size:15px}
+.plan .btn{margin-top:auto;align-self:flex-start}
+
+/* verify band + verify page */
+.band{background:var(--ink);color:#f2eee2;border-radius:3px;padding:30px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px}
+.band h2{color:#fff;margin:0}
+.band p{margin:4px 0 0;color:#cfc9b8;max-width:52ch}
+.band .btn{margin-left:auto;background:transparent;border-color:#f2eee2;color:#fff}
+.band .btn:hover{background:rgba(255,255,255,.08)}
+#vres{margin-top:16px;font-size:15.5px;background:#f4efe2;border:1px solid var(--line);border-radius:6px;padding:14px 16px;min-height:24px}
+#vres:empty{display:none}
+#vgo{margin-top:14px}
+
+footer{max-width:960px;margin:56px auto 0;padding:22px 0 34px;border-top:2px solid var(--ink);color:var(--mut);font-size:13.5px;display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between}
+footer b{color:var(--ink);font-family:var(--display)}
+
+.small{font-size:13.5px;color:var(--mut)}
+.note{font-size:14px;color:var(--mut);max-width:64ch}
+
+/* reveal — only when JS present; reduced motion kills all animation */
+.js .reveal{opacity:0;transform:translateY(12px);transition:opacity .36s ease-out,transform .36s ease-out}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .js .cert{animation:none}
+}
+
+@media (max-width:700px){
+  body{padding:0 16px}
+  h1{font-size:30px}
+  .hero{padding:36px 0 4px}
+  section{margin:34px 0}
+  .steps{grid-template-columns:1fr}
+  nav{margin-left:0;width:100%}
+  .cert{padding:24px 20px}
+  .cert::before{position:static;margin:0 0 12px;transform:none}
+  .band .btn{margin-left:0}
+  .btn{width:100%;text-align:center}
+  .cta-row .btn{width:auto;flex:1;text-align:center}
+}

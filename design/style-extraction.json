@@ -1,0 +1,37 @@
+{
+  "source": "https://verisart.com/ (screenshot /downloads/cloud-browser-20261024-203907.png, 2026-10-24)",
+  "method": "Manual structured extraction by the design agent. Fuseini's Gemini-AI-Studio extraction route was attempted first: aistudio.google.com redirects to a signed-out Google account chooser in the browser profile, and no sign-in was performed (no crossing login walls).",
+  "reference_product": "Verisart - certificates of authenticity for creative work (direct competitor reference)",
+  "style": {
+    "colors": {
+      "background": "#ffffff",
+      "ink": "#0d0d0d",
+      "muted": "#6b6b6b",
+      "hero": "charcoal gradient #3a3a3a -> #0d0d0d",
+      "lines": "hairline #e5e5e5"
+    },
+    "typography": {
+      "display": "neo-grotesque sans, very large (64px+), italic emphasis, tight leading",
+      "labels": "uppercase micro-type, wide letter-spacing (~0.18em), 11-12px, gray",
+      "body": "15-16px sans, 1.55 line-height"
+    },
+    "composition": {
+      "header": "wordmark left, sparse centered nav, auth actions right",
+      "hero": "full-width rounded card, dark gradient, giant headline, single outlined CTA",
+      "sections": "two-column asymmetric grids, generous 80px+ vertical rhythm",
+      "listings": "thumbnail + italic title + meta rows, hairline dividers"
+    },
+    "effects": ["gradient photo overlays", "letterspaced small-caps eyebrows", "rounded 8px cards", "hairline separators"]
+  },
+  "adopted_for_humanmade": [
+    "Uppercase letterspaced eyebrow labels above each section (already in build, confirmed by extraction)",
+    "One primary CTA per section; secondary actions as quiet outlines (confirmed)",
+    "Generous vertical rhythm and restrained section count",
+    "Hairline separators and card-based grouping"
+  ],
+  "rejected_for_humanmade": [
+    "Neo-grotesque sans identity - Human-made keeps its engraved serif notary identity to stay distinct from siblings",
+    "Dark gradient hero - off-identity for a paper certificate; ivory + vermillion seal retained",
+    "Left icon rail - unnecessary chrome for a single-purpose tool"
+  ]
+}
